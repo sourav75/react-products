@@ -5,20 +5,16 @@ const Products = () => {
   const [products, setProducts] = useState([]);
   const [limit, setLimit] = useState(10);
   const [skip, setSkip] = useState(0);
+  const fetchProducts = async () => {
+    let res = await fetch(
+      `https://dummyjson.com/products?limit=${limit}&skip=${skip}`
+    );
+    let data = await res.json();
+    setProducts(data.products);
+  };
   useEffect(() => {
-    fetch(`https://dummyjson.com/products?limit=${limit}&skip=${skip}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setProducts(data.products);
-      });
+    fetchProducts();
   }, []);
-  useEffect(() => {
-    fetch(`https://dummyjson.com/products?limit=${limit}&skip=${skip}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setProducts(data.products);
-      });
-  }, [products]);
   const listProducts = () => {
     const list = products.map((product) => {
       return (
