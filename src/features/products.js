@@ -3,7 +3,7 @@ import ProductElement from './product-element';
 
 const Products = () => {
   const [products, setProducts] = useState([]);
-  const [limit, setLimit] = useState(10);
+  const [limit, setLimit] = useState(30);
   const [skip, setSkip] = useState(0);
   const fetchProducts = async () => {
     let res = await fetch(
@@ -17,18 +17,14 @@ const Products = () => {
   }, []);
   const listProducts = () => {
     const list = products.map((product) => {
-      return (
-        <div>
-          <ProductElement product={product} />
-        </div>
-      );
+      return <ProductElement product={product} />;
     });
     return list;
   };
   return (
     <>
       <h3>Hello, Welcome to Products Page.</h3>
-      {products && listProducts()}
+      <div className="ProductsList">{listProducts()}</div>
     </>
   );
 };
