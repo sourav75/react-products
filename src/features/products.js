@@ -7,7 +7,7 @@ const Products = () => {
   const [skip, setSkip] = useState(0);
   const fetchProducts = async () => {
     let res = await fetch(
-      `https://dummyjson.com/products?limit=${limit}&skip=${skip}`
+      `https://dummyjson.com/products?limit=${limit}&skip=${skip}&select=id,title,description,images`
     );
     let data = await res.json();
     setProducts(data.products);
