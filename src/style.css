@@ -12,5 +12,10 @@ p {
 }
 .ProductItem {
   height: 5%;
-  max-width: 25%;
+  width: 25%;
+  padding: 1%;
+}
+.ProductItem > img {
+  height: 25ch;
+  width: 100%;
 }

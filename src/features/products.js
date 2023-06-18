@@ -23,7 +23,7 @@ const Products = () => {
   };
   return (
     <>
-      <h3>Hello, Welcome to Products Page.</h3>
+      <h1 style={{ textAlign: 'center' }}>Hello, Welcome to Products Page.</h1>
       <div className="ProductsList">{listProducts()}</div>
     </>
   );
